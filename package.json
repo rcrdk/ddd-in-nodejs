@@ -1,0 +1,29 @@
+{
+  "name": "forum-api-like-nodejs-ddd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "lint": "eslint src --ext .ts --fix",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "2.2.2",
+    "@types/node": "22.5.4",
+    "@typescript-eslint/eslint-plugin": "6.4.0",
+    "@typescript-eslint/parser": "6.4.0",
+    "eslint-plugin-simple-import-sort": "12.1.1",
+    "tsx": "4.19.0",
+    "typescript": "5.5.4",
+    "vite-tsconfig-paths": "4.3.2",
+    "vitest": "1.6.0"
+  },
+  "dependencies": {
+    "dayjs": "1.11.13"
+  }
+}
