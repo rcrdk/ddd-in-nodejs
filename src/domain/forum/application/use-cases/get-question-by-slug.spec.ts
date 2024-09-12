@@ -18,8 +18,6 @@ describe('get question by slug', () => {
 			slug: Slug.create('example-question-01'),
 		})
 
-		console.log(newQuestion)
-
 		await inMemoryQuestionsRepository.create(newQuestion)
 
 		const { question } = await sut.execute({
