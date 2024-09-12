@@ -11,7 +11,7 @@ describe('create question', () => {
 		sut = new CreateQuestionUseCase(inMemoryQuestionsRepository)
 	})
 
-	it('should be able to create an question', async () => {
+	it('should be able to create a question', async () => {
 		const { question } = await sut.execute({
 			authorId: 'author-01',
 			title: 'Que dia é hoje?',
