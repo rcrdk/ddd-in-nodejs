@@ -1,10 +1,17 @@
 {
-    "extends": ["@rocketseat/eslint-config/node"],
-    "plugins": ["simple-import-sort"],
+    "extends": [
+        "@rocketseat/eslint-config/node",
+        "plugin:vitest-globals/recommended"
+    ],
+    "plugins": [
+        "simple-import-sort"
+    ],
     "rules": {
         "simple-import-sort/imports": "error",
-        "camelcase": "off",
         "no-useless-constructor": "off"
-    }
+    },
+	"env": {
+		"vitest-globals/env": true
+	}
 }
 
