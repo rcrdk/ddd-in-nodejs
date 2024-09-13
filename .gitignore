@@ -2,7 +2,6 @@
 node_modules
 
 # Files
-README-CONTENTS.md
 .DS_Store
 
 # Enviroment variables
