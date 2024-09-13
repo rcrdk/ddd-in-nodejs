@@ -82,3 +82,11 @@ Eventos de domínio são importantes porque permitem que diferentes partes do si
 Clean Architecture é um conjunto de princípios e práticas que visam desenvolver sistemas de software de alta qualidade, com baixo acoplamento e alta coesão. É uma abordagem amplamente utilizada por desenvolvedores para garantir que seus sistemas sejam escaláveis, testáveis e fáceis de manter.
 
 https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg
+
+---
+
+## Polimorfismo:
+
+Polimorfismo é um dos conceitos fundamentais da Programação Orientada a Objetos (POO) e se refere à capacidade de objetos de uma mesma classe ou de classes diferentes responderem a um mesmo método ou mensagem de forma diferente. Em outras palavras, o polimorfismo permite que um objeto possa assumir diferentes formas e comportamentos, de acordo com o contexto em que está sendo utilizado. Essa característica permite uma maior flexibilidade e reutilização de código em programas orientados a objetos.
+
+NMeste projeto foi criada uma classe abstrata chamada Comment, que serve como base para as classes AnswerComment e QuestionComment. A classe Comment é responsável por conter os atributos e métodos comuns entre as subclasses, e é utilizada para aplicar o conceito de polimorfismo na programação orientada a objetos.
