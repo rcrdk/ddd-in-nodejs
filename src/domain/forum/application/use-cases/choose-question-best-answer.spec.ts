@@ -6,6 +6,7 @@ import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questio
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
 import { ChooseQuestionBestAnswerUseCase } from './choose-question-best-answer'
+import { UnauthorizedError } from './errors/unauthorized-error'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let inMemoryAnswersRepository: InMemoryAnswersRepository
@@ -52,11 +53,12 @@ describe('choose answer best answer', () => {
 		await inMemoryQuestionsRepository.create(question)
 		await inMemoryAnswersRepository.create(answer)
 
-		await expect(() => {
-			return sut.execute({
-				answerId: answer.id.toString(),
-				authorId: 'author-02',
-			})
-		}).rejects.toBeInstanceOf(Error)
+		const result = await sut.execute({
+			answerId: answer.id.toString(),
+			authorId: 'author-02',
+		})
+
+		expect(result.isLeft()).toBe(true)
+		expect(result.value).toBeInstanceOf(UnauthorizedError)
 	})
 })

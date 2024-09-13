@@ -4,6 +4,7 @@ import { InMemoryAnswersRepository } from 'test/repositories/in-memory-answers-r
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
 import { DeleteAnswerUseCase } from './delete-answer'
+import { UnauthorizedError } from './errors/unauthorized-error'
 
 let inMemoryAnswersRepository: InMemoryAnswersRepository
 let sut: DeleteAnswerUseCase
@@ -42,11 +43,12 @@ describe('delete answer by id', () => {
 
 		await inMemoryAnswersRepository.create(newAnswer)
 
-		await expect(() => {
-			return sut.execute({
-				answerId: 'answer-02',
-				authorId: 'author-01',
-			})
-		}).rejects.toBeInstanceOf(Error)
+		const result = await sut.execute({
+			answerId: 'answer-02',
+			authorId: 'author-01',
+		})
+
+		expect(result.isLeft()).toBe(true)
+		expect(result.value).toBeInstanceOf(UnauthorizedError)
 	})
 })

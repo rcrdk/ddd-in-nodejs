@@ -4,6 +4,7 @@ import { InMemoryAnswersRepository } from 'test/repositories/in-memory-answers-r
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
 import { EditAnswerUseCase } from './edit-answer'
+import { UnauthorizedError } from './errors/unauthorized-error'
 
 let inMemoryAnswersRepository: InMemoryAnswersRepository
 let sut: EditAnswerUseCase
@@ -45,12 +46,13 @@ describe('edit answer by id', () => {
 
 		await inMemoryAnswersRepository.create(newAnswer)
 
-		await expect(() => {
-			return sut.execute({
-				answerId: newAnswer.id.toValue(),
-				authorId: 'author-01',
-				content: 'Update content',
-			})
-		}).rejects.toBeInstanceOf(Error)
+		const result = await sut.execute({
+			answerId: newAnswer.id.toValue(),
+			authorId: 'author-01',
+			content: 'Update content',
+		})
+
+		expect(result.isLeft()).toBe(true)
+		expect(result.value).toBeInstanceOf(UnauthorizedError)
 	})
 })

@@ -4,6 +4,7 @@ import { InMemoryQuestionCommentsRepository } from 'test/repositories/in-memory-
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
 import { DeleteQuestionCommentUseCase } from './delete-question-comment'
+import { UnauthorizedError } from './errors/unauthorized-error'
 
 let inMemoryQuestionCommentsRepository: InMemoryQuestionCommentsRepository
 let sut: DeleteQuestionCommentUseCase
@@ -35,11 +36,12 @@ describe('delete question comment', () => {
 
 		await inMemoryQuestionCommentsRepository.create(questionComment)
 
-		await expect(() => {
-			return sut.execute({
-				questionCommentId: questionComment.id.toString(),
-				authorId: 'author-02',
-			})
-		}).rejects.toBeInstanceOf(Error)
+		const result = await sut.execute({
+			questionCommentId: questionComment.id.toString(),
+			authorId: 'author-02',
+		})
+
+		expect(result.isLeft()).toBe(true)
+		expect(result.value).toBeInstanceOf(UnauthorizedError)
 	})
 })

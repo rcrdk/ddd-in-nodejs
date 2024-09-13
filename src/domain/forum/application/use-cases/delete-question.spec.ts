@@ -4,6 +4,7 @@ import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questio
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
 
 import { DeleteQuestionUseCase } from './delete-question'
+import { UnauthorizedError } from './errors/unauthorized-error'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let sut: DeleteQuestionUseCase
@@ -42,11 +43,12 @@ describe('delete question by id', () => {
 
 		await inMemoryQuestionsRepository.create(newQuestion)
 
-		await expect(() => {
-			return sut.execute({
-				questionId: 'question-02',
-				authorId: 'author-01',
-			})
-		}).rejects.toBeInstanceOf(Error)
+		const result = await sut.execute({
+			questionId: 'question-02',
+			authorId: 'author-01',
+		})
+
+		expect(result.isLeft()).toBe(true)
+		expect(result.value).toBeInstanceOf(UnauthorizedError)
 	})
 })
