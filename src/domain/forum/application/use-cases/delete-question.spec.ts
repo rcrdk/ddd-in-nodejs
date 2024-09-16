@@ -4,9 +4,9 @@ import { InMemoryQuestionAttachmentsRepository } from 'test/repositories/in-memo
 import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questions-repository'
 
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
+import { UnauthorizedError } from '@/core/errors/unauthorized-error'
 
 import { DeleteQuestionUseCase } from './delete-question'
-import { UnauthorizedError } from './errors/unauthorized-error'
 
 let inMemoryQuestionAttachmentsRepository: InMemoryQuestionAttachmentsRepository
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository

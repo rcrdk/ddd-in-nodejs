@@ -84,6 +84,16 @@ https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/C
 
 ---
 
+## Subdomínos
+- Core: o que dá dinheiro, o que não pode parar, independentes entre si
+  - Exemplo: Compra, catálogo, pagamento, entrega, faturamento
+- Supporting: suporte para o core funcionar
+  - Exemplo: estoque
+- Generic: são necessários, mas não são tão importantes
+  - Exemplos: notificação ao cliente, promoções, chat
+
+---
+
 ## Polimorfismo:
 
 Polimorfismo é um dos conceitos fundamentais da Programação Orientada a Objetos (POO) e se refere à capacidade de objetos de uma mesma classe ou de classes diferentes responderem a um mesmo método ou mensagem de forma diferente. Em outras palavras, o polimorfismo permite que um objeto possa assumir diferentes formas e comportamentos, de acordo com o contexto em que está sendo utilizado. Essa característica permite uma maior flexibilidade e reutilização de código em programas orientados a objetos.

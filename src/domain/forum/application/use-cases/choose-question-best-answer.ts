@@ -1,10 +1,10 @@
 import { Either, left, right } from '@/core/either'
+import { ResourceNotFoundError } from '@/core/errors/resource-not-found-error'
+import { UnauthorizedError } from '@/core/errors/unauthorized-error'
 
 import { Question } from '../../enterprise/entities/question'
 import { AnswersRepository } from '../repositories/answers-repository'
 import { QuestionsRepository } from '../repositories/questions-repository'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
-import { UnauthorizedError } from './errors/unauthorized-error'
 
 interface ChooseQuestionBestAnswerUseCaseRequest {
 	answerId: string

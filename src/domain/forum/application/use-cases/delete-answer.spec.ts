@@ -4,9 +4,9 @@ import { InMemoryAnswerAttachmentsRepository } from 'test/repositories/in-memory
 import { InMemoryAnswersRepository } from 'test/repositories/in-memory-answers-repository'
 
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
+import { UnauthorizedError } from '@/core/errors/unauthorized-error'
 
 import { DeleteAnswerUseCase } from './delete-answer'
-import { UnauthorizedError } from './errors/unauthorized-error'
 
 let inMemoryAnswerAttachmentsRepository: InMemoryAnswerAttachmentsRepository
 let inMemoryAnswersRepository: InMemoryAnswersRepository

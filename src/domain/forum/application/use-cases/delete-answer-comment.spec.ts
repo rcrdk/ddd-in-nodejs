@@ -2,9 +2,9 @@ import { makeAnswerComment } from 'test/factories/make-answer-comment'
 import { InMemoryAnswerCommentsRepository } from 'test/repositories/in-memory-answer-comments-repository'
 
 import { UniqueEntityId } from '@/core/entities/unique-entity-id'
+import { UnauthorizedError } from '@/core/errors/unauthorized-error'
 
 import { DeleteAnswerCommentUseCase } from './delete-answer-comment'
-import { UnauthorizedError } from './errors/unauthorized-error'
 
 let inMemoryAnswerCommentsRepository: InMemoryAnswerCommentsRepository
 let sut: DeleteAnswerCommentUseCase

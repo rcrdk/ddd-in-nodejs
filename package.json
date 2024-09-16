@@ -9,7 +9,7 @@
     "lint:fix": "eslint src --ext .ts --fix",
     "test": "vitest run",
     "test:watch": "vitest",
-	"test:typescript": "tsc --noEmit"
+	"test:ts": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
